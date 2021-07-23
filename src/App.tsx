@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Box, ThemeProvider } from "@material-ui/core";
+import { Route, Switch } from "react-router-dom";
+import "./App.css";
+import { NavComponent } from "./components/NavComponent";
+import { theme } from "./theme";
+import { FavoriteFilms } from "./views/FavoriteFilms";
+import { FindMovies } from "./views/FindMovies";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Box bgcolor="text.disabled" textAlign="center">
+        <header>
+          <NavComponent />
+        </header>
+        <main>
+          <Switch>
+            <Route path="/" component={FindMovies} exact></Route>
+            <Route path="/favorite" component={FavoriteFilms}></Route>
+          </Switch>
+        </main>
+      </Box>
+    </ThemeProvider>
   );
 }
 
