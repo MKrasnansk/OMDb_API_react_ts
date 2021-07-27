@@ -71,7 +71,7 @@ export const ListAllSearch: React.FC<Props> = (props) => {
     setIsOpen(true);
     await axios
       .get(
-        `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&i=${id}&plot=full`
+        `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&i=${id}&plot=full`
       )
       .then((response) => {
         setDetails(response.data);

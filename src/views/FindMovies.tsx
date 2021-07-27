@@ -17,7 +17,7 @@ export const FindMovies: React.FC = () => {
   const handleSubmit = async (query: string, page: number) => {
     await axios
       .get(
-        `http://omdbapi.com/?apikey=${
+        `https://omdbapi.com/?apikey=${
           process.env.REACT_APP_API_KEY
         }&s=${encodeURI(query)}&page=${page}`
       )
